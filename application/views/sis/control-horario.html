@@ -1,0 +1,142 @@
+<div class="breadcrumb-holder">
+  <div class="container-fluid">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active">Forms</li>
+    </ul>
+  </div>
+</div>
+<section class="forms">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <header> 
+          <h1 class="h3 display">Control de Horario</h1>
+        </header>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-4">
+              <input type="text" id='txt-tcname' class="form-control" placeholder="Apellidos y Nombres">
+            </div>
+            <div class="col-2">
+              <button class="btn btn-primary" id="btn-tcname" type="button">Buscar</button>
+            </div>
+          </div>
+        </div>
+        <div id="ver-horarios" style="display: none;">
+          <br>
+          <br>
+          <div>
+            <label>Personal: </label>
+            <span id="mh-personal"></span>
+            <button data-toggle="modal" data-target="#agregar-horario" type="button"><i class="fa fa-plus"></i></button>
+          </div>
+          <div style="">
+            <table id="table-horario" class="display responsive nowrap" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Fecha I.</th>
+                  <th>Fecha F.</th>
+                  <th>TM I.</th>
+                  <th>TM F.</th>
+                  <th>TT I.</th>
+                  <th>TT F.</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="agregar-horario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+  <div role="document" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="lbl-asistencia">Agregar Horario</h5>
+        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        <form  onsubmit="return false" id="form-inserthorario">
+          <div class="row">
+            <div class="col-sm-12">
+              <span id="e-personal" mh-personal="" style="display: none;"></span>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lname">Fecha Inicio:</label>
+                    <div class="input-group date" data-provide="datepicker">
+                      <input type="text" class="form-control" id="txt-ifecha">
+                      <div class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lname">Fecha Final:</label>
+                    <div class="input-group date" data-provide="datepicker">
+                      <input type="text" class="form-control" id="txt-ffecha">
+                      <div class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lname">Mañana entrada:</label>
+                    <div class="input-group bootstrap-timepicker timepicker">
+                      <input type="text" class="form-control input-small grouptimepicker" id='txt-me'>
+                      <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lname">Mañana salida:</label>
+                    <div class="input-group bootstrap-timepicker timepicker">
+                      <input type="text" class="form-control input-small grouptimepicker" id='txt-ms'>
+                      <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lname">Tarde entrada:</label>
+                    <div class="input-group bootstrap-timepicker timepicker">
+                      <input type="text" class="form-control input-small grouptimepicker" id='txt-te'>
+                      <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lname">Tarde salida:</label>
+                    <div class="input-group bootstrap-timepicker timepicker">
+                      <input type="text" class="form-control input-small grouptimepicker" id='txt-ts'>
+                      <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-success" type="submit" id="btn-agregar-horario">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

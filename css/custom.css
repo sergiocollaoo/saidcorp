@@ -1,0 +1,52 @@
+/* your styles go here */
+tr.group,
+tr.group:hover {
+    background-color: #7b7d7d !important;
+    color: #fff;
+}
+
+.custom-file-control:before{
+  content: "Examinar";
+}
+.custom-file-control:after{
+  content: "Agregar archivo...";
+}
+
+.custom-file-control.selected:after{
+  content: "" !important;
+}
+
+.circle {
+    background-color: rgba(60, 100, 170);
+    -moz-border-radius:50%;
+    -webkit-border-radius: 50%;
+    border-radius:50%;
+    display: inline-block;
+    text-align: center;
+    line-height: 1;
+}
+
+.circle span {
+    display: block;
+    padding: 50%;
+    margin: -3em -50% 0;
+    position: relative;
+    top: 1.5em;
+    border: 1em solid transparent;
+    white-space: nowrap;
+}
+
+.circle + .circle {background-color: yellow;}
+.circle + .circle + .circle {background-color: pink;}
+
+.cpointer{
+	cursor: pointer;
+}
+
+.contenedor{
+	max-width: 100%;
+}
+
+.imagen:hover{
+-webkit-transform:scale(0.8);transform:scale(0.8);animation-delay: 2s;
+}

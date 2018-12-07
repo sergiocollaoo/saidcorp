@@ -1,0 +1,67 @@
+/* ESTILO DE BOTONES BY SERGIO COLLAO */
+
+.btn-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border: 1px solid;
+	width: 170px;
+	height: 170px;
+	border-radius: 80px;
+	margin-top: 15px;
+}
+
+.btn-box-body{
+	width: 100%;
+}
+
+.btn-box-body i{
+	font-size: 5em;
+}
+
+.btn-box-body span{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.btn-box-footer {
+	width: 100%;
+	font-size: 1.3em;
+	text-align: center;
+}
+
+.btn-box-sm{
+	transform: scale(0.5);
+}
+
+.btn-box-lg{
+ transform: scale(1.2);
+}
+
+.btn-box-success{
+	background-color: transparent;
+	background-image: none;
+	border-color: #28a745;
+}
+
+.btn-box-success button{
+ 	background-color: transparent;
+    background-repeat:no-repeat;
+    border: none;
+	color: #28a745;
+    cursor:pointer;
+    outline: none !important;
+}
+
+.btn-box-success:hover{
+	color: #fff;
+	background-color: #28a745;
+	border-color: #28a745;
+}
+
+.btn-box-success:hover button{
+	color: #fff;
+	border-color: #28a745;
+}

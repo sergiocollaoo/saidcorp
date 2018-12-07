@@ -1,0 +1,89 @@
+<div class="breadcrumb-holder">
+</div>
+<section class="forms">
+  <div class="container-fluid" id="listblog">
+    <div class="row">
+      <div class="col-lg-12">
+        <header> 
+          <h1 class="h2 display">Blog</h1>
+        </header>
+        <div class="form-group" style="text-align: right;">
+          <div class="col-lg-12">
+            <button type="button" class="btn btn-primary" id="btnAgregarBlog">Agregar</button>
+            <!-- Modal-->
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <table id="table-blog" class="display responsive nowrap" width="100%" cellspacing="0">
+      <thead>
+        <tr>
+          <th>N°</th>
+          <th>Fecha</th>
+          <th>Categoria</th>
+          <th>Titulo</th>
+          <th>Cuerpo</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th>N°</th>
+          <th>Fecha</th>
+          <th>Categoria</th>
+          <th>Titulo</th>
+          <th>Cuerpo</th>
+          <th>Opciones</th>
+        </tr>
+      </tfoot>
+      <tbody>
+
+      </tbody>
+    </table>
+  </div>
+  <div id="agregarblog" style="display: none;">
+    <div class="row">
+      <div class="col-12">
+        <div class="modal-header">
+          <h1 class="h2 display">Agregar</h1>
+          <button type="button" class="btn btn-danger" id="btnCancelarBlog">Cancelar</button>
+        </div>
+        <div class="modal-body">
+          <!-- ***************************** -->
+          <form onsubmit="return false" id="form-blog">
+            <div class="form-group row">
+              <legend class="col-sm-2 col-form-label">Título <span class="required">*</span></legend>
+              <div class="col-sm-10">
+                <input class="form-control" id="txt-titulo" type="text" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <legend class="col-sm-2 col-form-label">Cuerpo <span class="required">*</span></legend>
+              <div class="col-sm-10">
+                <textarea id="txt-cuerpo"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <legend class="col-sm-2 col-form-label">Imagen <span class="required">*</span></legend>
+              <div class="col-sm-10">
+                <input type="file" class="form-control-file" id="txt-upimagen">
+              </div>
+            </div>
+            <fieldset class="form-group">
+              <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Categoria <span class="required">*</span></legend>
+                <div class="col-sm-10" id="listcat">
+                  
+                </div>
+              </div>
+            </fieldset>
+            <div class="modal-footer">
+              <button class="btn btn-success" type="submit">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

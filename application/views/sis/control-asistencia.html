@@ -1,0 +1,206 @@
+<div class="breadcrumb-holder">
+  <div class="container-fluid">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active">Forms</li>
+    </ul>
+  </div>
+</div>
+  <section class="forms">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <header> 
+            <h1 class="h3 display">Control de Asistencia</h1>
+          </header>
+          <div class="form-group">
+            <div class="row">
+            <div class="col-4">
+              <input type="text" id='txt-cname' class="form-control" placeholder="Apellidos y Nombres">
+            </div>
+            <div class="col-4">
+              <div class="input-daterange input-group" id="datepicker">
+                <input type="text" class="input-sm form-control" id="txt-fechai" name="start" />
+                <span class="input-group-addon">a</span>
+                <input type="text" class="input-sm form-control" id="txt-fechaf" name="end" />
+              </div>
+            </div>
+            <div class="col-2">
+              <button class="btn btn-primary" id="btn-cname" type="button">Buscar</button>
+            </div>
+            <div class="col-2">
+              <button class="btn btn-primary" data-toggle="modal" data-target="#ajustar-marcacion" type="button">Ajustar marcación</button>
+            </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-8">
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+              <button class="btn btn-success" id="btn-cname" type="button">Procesar Datos</button>
+            </div>
+            </div>
+          </div>
+
+          <table id="table-asistencia" class="display responsive nowrap" width="100%" cellspacing="0">
+            <thead>
+            <tr>
+                <th>Apellidos y Nombres</th>
+                <th>Tipo</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Motivo</th>
+                <th>Descripción</th>
+                <th>Horas Justificadas</th>
+                <th>Archivo</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+    </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="ajustar-marcacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+    <div role="document" class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="lbl-asistencia">Ajustar Marcación</h5>
+          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+        </div>
+        <div class="modal-body">
+          <form  onsubmit="return false" id="form-ajustarmarca">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label>Personal: </label>
+                      <select class="form-control cbo-personal">
+                        <option></option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="lname">Fecha:</label>
+                      <div class="input-group date" data-provide="datepicker">
+                        <input type="text" class="form-control" id="txt-fechaj">
+                        <div class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="lname">Hora:</label>
+                      <div class="input-group bootstrap-timepicker timepicker">
+                        <input type="text" class="form-control input-small grouptimepicker" id='txt-horaj'>
+                        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="lname">Motivo:</label>
+                        <select class="form-control cbo-motivo">
+                        <option></option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="exampleTextarea">Descripción:</label>
+                        <textarea class="form-control" id="txtarea-descrip" rows="3"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-success" type="submit" id="btn-ajustar-asistencia">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="editar-asistencia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+    <div role="document" class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="lbl-asistencia">Editar Marcación</h5>
+          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+        </div>
+        <div class="modal-body">
+          <form  onsubmit="return false" id="form-ajustarmarca">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label>Personal: </label>
+                      <p class="form-control-static" id="lbl-ename"></p>
+                      <p class="form-control-static" id="id-asistencia" data-idasistencia="" style="display: none;"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="lname">Motivo:</label>
+                        <select class="form-control cbo-emotivo">
+                        <option></option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="exampleTextarea">Descripción:</label>
+                        <textarea class="form-control" id="txtarea-edescrip" rows="3"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="lname">Horas justificadas:</label>
+                      <div class="input-group bootstrap-timepicker timepicker">
+                        <input type="text" class="form-control input-small grouptimepicker" id='txt-horajustificada'>
+                        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Archivo:</label>
+                      <label class="custom-file">
+                        <input type="file" id="Image" class="custom-file-input">
+                        <span class="custom-file-control form-control-file"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-success" type="submit" id="btn-editar-asistencia">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

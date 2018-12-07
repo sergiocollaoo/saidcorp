@@ -1,0 +1,355 @@
+<div class="breadcrumb-holder">
+</div>
+<section class="forms">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <header> 
+          <h1 class="h3 display">Crear Fua:</h1>
+        </header>
+        <form  onsubmit="return false" id="form-fua">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              FORMATO ÚNICO DE INICIO DE ASESORIA N° <label for="SomeTextField" id="lbl-codfua" data-idfua="" style="font-size:16px;">000-0000</label>
+            </div>
+          </div>
+          <br><br>        
+          <!-- Nav tabs -->
+          <div class="row">
+            <div class="col-md-2">
+              <ul class="nav nav-tabs flex-column" role="tablist" id="fuaTab">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#DatosG" role="tab">Datos Generales.</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" data-toggle="tab" href="#DetalleServ" role="tab">Detalles del servicio.</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" data-toggle="tab" href="#Retri" role="tab">Retribución.</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" data-toggle="tab" href="#SocioProv" role="tab">Socio Proveedor.</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" data-toggle="tab" href="#AcuerdoPriv" role="tab">Acuerdo Privado.</a>
+                </li>
+              </ul>
+            </div>  
+            <!-- Tab panes -->
+            <div class="col-md-10">
+              <div class="tab-content">
+                <div class="tab-pane active" id="DatosG" role="tabpanel">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <h4>Datos Generales:</h4>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>Nombre/Razón Social:</label>  
+                            <input class="form-control" id="txt-namerz"  type="text"/>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>DNI/RUC:</label>
+                            <input class="form-control" id="txt-dniruc" type="text"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>Representante Legal:</label>
+                            <input class="form-control" id="txt-reprelegal" type="text"/>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>DNI:</label>
+                            <input class="form-control" id="txt-dni" type="text"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>Contacto:</label>
+                            <input class="form-control" id="txt-contacto" type="text"/>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>Domicilio:</label>
+                            <input class="form-control" id="txt-domicilio" type="text"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>Teléfonos:</label>
+                            <input class="form-control" id="txt-telefono" type="text"/>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>Correos:</label>
+                            <input class="form-control" id="txt-correo" type="text"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 text-center">
+                      <button class="btn btn-outline-primary" id="modifyDG" style="display: none;" type="button">Modificar</button>
+                      <button class="btn btn-outline-primary" id="saveDG" type="submit">Siguiente</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="tab-pane" id="DetalleServ" role="tabpanel">
+                <h4>Detalles del servicio:</h4>
+                <div class="row justify-content-center">
+                  <button class="btn btn-outline-primary" id="addservicio" data-toggle="modal" data-target="#dsModal" type="button">Agregar +</button>&nbsp;
+                  <button disabled class="btn btn-outline-primary" id="editservicio" data-toggle="modal" data-target="#dsModal" type="button">Modificar</button>&nbsp;
+                  <button disabled class="btn btn-outline-primary" id="delservicio" type="button">Eliminar -</button>
+                </div>
+                <table id="fuaservicio" class="display responsive nowrap" width="100%" cellspacing="2">
+                  <thead>
+                    <tr>
+                      <th>Acción</th>
+                      <th>Descripción</th>
+                      <th>Opciones</th>
+                    </tr>
+                  </thead>
+                </table>
+                <br><br>
+                <div class="col-sm-12 text-center">
+                  <button class="btn btn-outline-primary" id="sgtDS" type="button">Siguiente</button>
+                </div>
+              </div>
+              <div class="tab-pane" id="Retri" role="tabpanel">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h4>Retribución:</h4>
+                    <div class="row">
+                      <div class="col-sm-2" style="text-align: center;">
+                        <div class="form-group">
+                          <button class="btn btn-primary" id="addcbc" data-toggle="modal" data-target="#montoModal" type="button"><i class="fa fa-plus"></i></button>
+                        </div>
+                        <div class="form-group">
+                          <button style="display: none" class="btn btn-primary" id="editcbc" data-toggle="modal" data-target="#montoModal" type="button"><i class="fa fa-edit"></i></button>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group row">
+                          <label class="col-6 col-form-label">Monto de la retribución:</label>
+                          <div class="col-6">
+                            <input readonly="" class="form-control" type="text" id="txt-montoRO">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-6 col-form-label">Bono de éxito:</label>
+                          <div class="col-6">
+                          <input readonly="" class="form-control" type="text" id="txt-bonoRO">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <textarea readonly="" class="form-control" id="txt-obsRO" placeholder="Observaciones" style="height: 98px;"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="row justify-content-center">
+                    <button class="btn btn-outline-primary" id="addretri" data-toggle="modal" data-target="#rModal" type="button">Agregar +</button>&nbsp;
+                    <button class="btn btn-outline-primary" id="addretri" data-toggle="modal" data-target="#rModal" type="button">Modificar</button>&nbsp;
+                    <button class="btn btn-outline-primary" id="delretri" type="button">Eliminar -</button>
+                  </div>
+                  <table id="fuaretri" class="display responsive nowrap" width="100%" cellspacing="2">
+                    <thead>
+                      <tr>
+                        <th>Fecha/Oportunidad</th>
+                        <th>Monto</th>
+                        <th>Consideraciones</th>
+                        <th>Fecha/Pago</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+                <div class="modal-footer justify-content-center">
+                  <button class="btn btn-outline-primary" id="sgtSP" type="button">Siguiente</button>
+                </div>
+              </div>
+              <div class="tab-pane" id="SocioProv" role="tabpanel">
+                <h4>Socio Proveedor:</h4>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Socio:</label>  
+                      <input class="form-control" id="txt-namerz"  type="text"/>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Teléfono:</label>
+                      <input class="form-control" id="txt-dniruc" type="text"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Correos:</label>
+                      <input class="form-control" id="txt-telefono" type="text"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                  <button class="btn btn-outline-primary" id="modifyDG" style="display: none;" type="button">Modificar</button>
+                  <button class="btn btn-outline-primary" id="saveDG" type="submit">Siguiente</button>
+                </div>
+              </form>
+            </div>
+            <div class="tab-pane" id="AcuerdoPriv" role="tabpanel">
+              <h4>Acuerdo Privado:</h4>
+              <div class="row">
+                <div class="col-sm-3">
+                  <fieldset class="form-group">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        Porcentaje
+                      </label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-sm-3">
+                  <input class="form-control" id="txt-namerz"  type="text"/>
+                </div>
+                <div class="col-sm-3">
+                  <fieldset class="form-group">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        Monto específico
+                      </label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-sm-3">
+                  <input class="form-control" id="txt-namerz"  type="text"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ***************************** -->
+      <a class="cpointer" id="returnfua"><img class="imagen" style="width: 50px;" src="assets/images/extras/return.png"></a>
+      <!-- Modal detalles del servicio -->
+      <div id="dsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+        <div role="document" class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="label-ds" class="modal-title" ></h5>
+              <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+              <form  onsubmit="return false" id="form-fuads">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <label for="SomeTextField" class="lbl-idfua" data-idfuads="" data-idfua=""></label>
+                    <label>Acción:</label>
+                    <textarea class="form-control" id="txt-accionds"></textarea>
+                    <label>Descripción:</label>
+                    <textarea class="form-control" id="txt-descripcion"></textarea>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button id="add-fuads" class="btn btn-success" type="submit">Agregar</button>
+                  <button style="display: none;" id="edit-fuads" class="btn btn-success" type="button">Editar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal retribucion -->
+      <div id="rModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+        <div role="document" class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="exampleModalLabel" class="modal-title">Retribución</h5>
+
+              <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+              <form  onsubmit="return false" id="form-fuar">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <label for="SomeTextField" class="lbl-idfua" data-idfua=""></label>
+                    <label>Fecha/Oportunidad:</label>
+                    <div class="input-group date" data-provide="datepicker">
+                      <input type="text" class="form-control" id="txt-fechar">
+                      <div class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                      </div>
+                    </div>
+                    <label>Monto:</label>
+                    <input class="form-control" id="txt-montor" type="text"/>
+                    <label>Consideraciones:</label>
+                    <textarea class="form-control" id="txt-consideracion"></textarea>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-success" type="submit">Agregar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Cabecera de retribución -->
+      <div id="montoModal" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade text-left">
+        <div role="document" class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="label-cbc" class="modal-title" ></h5>
+              <label for="SomeTextField" class="lbl-idfua" data-idfua=""></label>
+              <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+              <form  onsubmit="return false" id="form-cbcr">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label>Monto:</label>
+                    <input class="form-control" id="txt-monto" type="text"/>
+                  </div>
+                  <div class="col-lg-6">
+                    <label>Bono:</label>
+                    <input class="form-control" id="txt-bono" type="text"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label>Observaciones:</label>
+                      <textarea class="form-control" id="txt-obs"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-success" type="submit">Agregar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
