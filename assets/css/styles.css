@@ -734,75 +734,10 @@ article img.pull-right, article .align-right{
 /* =============================
 21. Media queries 
 ============================= */
-
-@media (min-width: 768px) and (max-width: 979px) {
-
-	a.detail{
-		background:none;
-		width:100%;
+@media screen and (max-width: 600px) {
+	#v-pills-tab{
+		font-size: .5rem;
 	}
-
-
-	
-	footer .widget form  input#appendedInputButton {
-		  display: block;
-		  width: 91%;
-		  -webkit-border-radius: 4px 4px 4px 4px;
-			 -moz-border-radius: 4px 4px 4px 4px;
-				  border-radius: 4px 4px 4px 4px;
-	}
-	
-	footer .widget form  .input-append .btn {
-		  display: block;
-		  width: 100%;
-		  padding-right: 0;
-		  padding-left: 0;
-		  -webkit-box-sizing: border-box;
-			 -moz-box-sizing: border-box;
-				  box-sizing: border-box;
-				  margin-top:10px;
-	}
-
-	ul.related-folio li{
-		width:156px;
-		margin:0 20px 0 0;
-	}	
-}
-
-
-
-@media (max-width: 480px) {
-	.bottom-article a.pull-right {
-		float:left;
-		margin-top:20px;
-	}
-
-
-	.search{
-		float:left;
-	}
-
-	.flexslider .flex-caption {
-		display:none;
-	}
-
-
-	.cta-text {
-		margin:0 auto;
-		text-align:center;	
-	}
-	
-	ul.portfolio li article a i{
-		width:20px;
-		height:20px;
-		font-size:14px;
-	}
-
-
-}
-
-@media (max-width: 360px) {
-
 }
 
 .listizq {
