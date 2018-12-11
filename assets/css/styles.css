@@ -459,7 +459,7 @@ footer .head-footer{
 
 .linea{
   margin:0px 30px;
-  width:58%;    
+  width:40%;    
   border-top:4px double white;
   position: absolute;
   top:10px;
@@ -730,15 +730,34 @@ article img.pull-right, article .align-right{
 	margin-top:40px;
 }
 
-
+/* ================
+adicionales
+===================*/
+#v-pills-tab{
+	font-size: 1rem;
+}
 /* =============================
 21. Media queries 
 ============================= */
 @media screen and (max-width: 600px) {
 	#v-pills-tab{
-		font-size: .5rem;
+		font-size: .8rem;
+	}
+	.line-vertical{
+		display: none;
+		
 	}
 }
+
+/*@media screen and (max-width: 793px) {
+	#v-pills-tab{
+		font-size: .8rem;
+	}
+	.line-vertical{
+		display: none;
+
+	}
+}*/
 
 .listizq {
     margin:auto;

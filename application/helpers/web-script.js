@@ -4,7 +4,7 @@ function init_web()
 {    
 
 /* Menu pegado */
-var altura = $('.sticky').offset().top;
+var altura = $('.menu').offset().top;
 $(window).on('scroll', function(){
   if ($(window).scrollTop() > altura) {
     $('.body-menu-full').addClass('menu-sticky');
@@ -17,7 +17,7 @@ $(window).on('scroll', function(){
   $('#slider-client').slick({
       cssEase: 'linear',
       dots: true,
-      slidesToShow: 6,
+      slidesToShow: 5,
       slidesToScroll: 1,
       autoplay: true,
       infinite: true,
