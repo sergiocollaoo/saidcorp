@@ -1,7 +1,15 @@
+
 $(document).ready(init_web);
 /******************************************************************************************************************************************************************************/
 function init_web()
-{    
+{
+$(".loader").delay(1500).fadeOut("slow");
+
+$('.carousel').carousel({
+  interval: 10000
+})
+
+navidad();
 
 /* Menu pegado */
 var altura = $('.menu').offset().top;
@@ -17,7 +25,7 @@ $(window).on('scroll', function(){
   $('#slider-client').slick({
       cssEase: 'linear',
       dots: true,
-      slidesToShow: 5,
+      slidesToShow: 7,
       slidesToScroll: 1,
       autoplay: true,
       infinite: true,
@@ -145,6 +153,28 @@ $(window).on('scroll', function(){
       view_ciiu();
     }
   });
+}
+/******************************************************************************************************************************************************************************/
+function navidad(){
+  var a = new Date();
+  var añoactual = a.getFullYear();
+
+  var fechahoy = moment(a).format("YYYY-MM-DD");
+
+  var di = new Date(añoactual,'11','01');
+  var diciembrei = moment(di).format("YYYY-MM-DD");
+
+  var df = new Date(añoactual,'11','31');
+  var diciembref = moment(df).format("YYYY-MM-DD");
+  // var range = moment().range(di, df);
+  if (moment(fechahoy).isBetween(diciembrei,diciembref)) {
+    $.fn.snow({ minSize: 15, maxSize: 37, newOn: 600, flakeColor: '#b7c2f0'});
+    $(".logo-navidad").show();
+    $(".logo-normal").hide();
+  }else{
+    $(".logo-navidad").hide();
+    $(".logo-normal").show();
+  }
 }
 /******************************************************************************************************************************************************************************/
 function view_blog(valorBuscar,pagina,cantidad){

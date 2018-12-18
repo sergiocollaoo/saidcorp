@@ -1,3 +1,13 @@
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('../images/logo1.png') 50% 50% no-repeat rgb(249,249,249);
+    opacity: 1;
+}
 /* =============================
 1. Menu
 ============================= */
@@ -66,7 +76,14 @@ nav ul li a:hover{
 	z-index: 999;
 	top: 0;
 	width: 100%;
+	height: 80px;
 	max-width: 100%;
+	font-size: .6em;
+}
+
+.menu-sticky img {
+	width: 110px;
+	height: auto;
 }
 
 .menu-sticky .navbar-light{
@@ -154,51 +171,53 @@ img.img-polaroid {
 .img-box {
 	max-width:100%;
 }
-
-.col-xs-5s,
-.col-sm-5s,
-.col-md-5s,
-.col-lg-5s {
-  position: relative;
-  min-height: 1px;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.col-xs-5s {
-  width: 20%;
-  float: left;
-}
-
-@media (min-width: 768px) {
-  .col-sm-5s {
-    width: 20%;
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-    }
-  }
-@media (min-width: 992px) {
-  .col-md-5s {
-    width: 20%;
-    float: left;
-    }
-  }
-@media (min-width: 1200px) {
-  .col-lg-5s {
-    width: 20%;
-    float: left;
-    }
-}
 /* ===================================
 6. Sliders
 ==================================== */
 /* --- flexs caption --- */
 
-.flex-caption {background:none; -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000); zoom: 1;}
-.flex-caption { bottom: 35px; background-color: rgba(0, 0, 0, 0.6); color: #fff; margin: 0; padding: 25px 25px 25px 30px; position: absolute; right: 45px; width: 400px;}
-.flex-caption h3 {color: #fff; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase;}
-.flex-caption p {margin: 0 0 15px;}
+/*.flex-caption {background:none; -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000); zoom: 1;}*/
+.img-flex{
+    bottom: 250px;
+    animation: zoomer 7s;
+}
+
+@keyframes zoomer {
+  	from {
+		transform: scale(0,0);
+ 	}
+
+	to {
+		transform: scale(1,1);
+	}
+}
+
+.flex-caption {
+	width: 400px;
+	left: 38.5%;
+	bottom: 205px;
+	padding: 0 0 0 0;
+	background-color: rgba(255, 255, 255, 0.4); 
+	color: #000; 
+	position: absolute;
+	animation-duration: 7s;
+  	animation-name: slidein;
+}
+
+@keyframes slidein {
+  	from {
+	    margin-left: 100%;
+	    width: 100%
+ 	}
+
+	to {
+	    margin-left: 0%;
+	    width: 24%;
+	}
+}
+
+/*.flex-caption h3 {color: #fff; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase;}
+.flex-caption p {margin: 0 0 15px;}*/
 
 
 /* ===================================
@@ -426,13 +445,11 @@ ul.portfolio-categ li.active a:hover, ul.portfolio-categ li a:hover,ul.portfolio
 /* ===============================
 16. Footer
 ================================ */
-
-footer{
-	margin-top: 50px;
+footer hr{
+	border: 4px double white;
 }
 
 footer .head-footer{
-	padding-top: 50px;
 	color: white;
 }
 
@@ -739,16 +756,102 @@ adicionales
 /* =============================
 21. Media queries 
 ============================= */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
 	#v-pills-tab{
 		font-size: .8rem;
 	}
+
 	.line-vertical{
 		display: none;
 		
 	}
+	
+	.img-flex{
+		top: 10px;
+    	animation: zoomer 7s;
+	}
+
+	@keyframes zoomer {
+  		from {
+			transform: scale(0,0);
+ 		}
+
+		to {
+			transform: scale(1,1);
+		}
+	}
+
+	.flex-caption {
+		width: 35%;
+		height: 8%;
+		top: 50%;
+		left: 33%;
+		font-size: 10px;
+		padding: 0 0 0 0;
+		background-color: rgba(255, 255, 255, 0.4); 
+		color: #000; 
+		position: absolute;
+		animation-duration: 7s;
+	  	animation-name: slidein;
+	}
+
+	.flex-caption h3{
+		font-size: 12px;
+		color: #fff;
+		text-transform: uppercase;
+	}
+
+	.flex-caption p{
+		margin: 0;
+	}
+
+	@keyframes slidein {
+	  	from {
+		    margin-left: 100%;
+		    width: 35%
+	 	}
+
+		to {
+		    margin-left: 0%;
+		    width: 35%;
+		}
+	}
+
+.col-xs-5s,
+.col-sm-5s,
+.col-md-5s,
+.col-lg-5s {
+  position: relative;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
+.col-xs-5s {
+  width: 20%;
+  float: left;
+}
+
+@media (min-width: 768px) {
+  .col-sm-5s {
+    width: 20%;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    }
+  }
+@media (min-width: 992px) {
+  .col-md-5s {
+    width: 20%;
+    float: left;
+    }
+  }
+@media (min-width: 1200px) {
+  .col-lg-5s {
+    width: 20%;
+    float: left;
+    }
+}
 /*@media screen and (max-width: 793px) {
 	#v-pills-tab{
 		font-size: .8rem;
