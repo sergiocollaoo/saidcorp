@@ -58,8 +58,10 @@ $route['nosotros'] 						= 'web_controller/nosotros';
 $route['equipo'] 						= 'web_controller/equipo';
 $route['servicios'] 					= 'web_controller/servicios';
 $route['clientes'] 						= 'web_controller/clientes';
-$route['novedades'] 					= 'web_controller/novedades';
-$route['novedades_view'] 				= 'web_controller/novedades_view';
+$route['normativas'] 					= 'web_controller/normativas';
+$route['normativas_view'] 				= 'web_controller/normativas_view';
+$route['videos'] 						= 'web_controller/videos';
+$route['videos_view'] 					= 'web_controller/videos_view';
 $route['vcontacto'] 					= 'web_controller/viewcontacto';
 $route['herramienta-empresarial'] 		= 'web_controller/herr_empresa';
 $route['contacto']		 				= 'web_controller/contacto';
@@ -72,6 +74,9 @@ $route['insert_blog'] 					= 'blog_controller/insert_blog';
 $route['subir_imagen'] 					= 'blog_controller/subir_imagen';
 $route['view_blog'] 					= 'blog_controller/view_blog';
 $route['view_blog2'] 					= 'blog_controller/view_blog2';
+/************************************************************************************************************************************************************************/
+$route['view_video'] 					= 'video_controller/view_video';
+$route['view_video2'] 					= 'video_controller/view_video2';
 /************************************************************************************************************************************************************************/
 $route['view_ciiu'] 					= 'web_controller/view_ciiu';
 /************************************************************************************************************************************************************************/

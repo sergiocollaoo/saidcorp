@@ -78,6 +78,9 @@ $(window).on('scroll', function(){
   view_blog("",1,3);
   view_blog2();
 
+  view_video();
+  view_video2();
+
   $("#busquedablog").on('click', function(){
     textobuscar = $('input[name=busqueda]').val();
     valoroption = 3;
@@ -164,7 +167,7 @@ function navidad(){
   var di = new Date(añoactual,'11','01');
   var diciembrei = moment(di).format("YYYY-MM-DD");
 
-  var df = new Date(añoactual,'11','31');
+  var df = new Date(añoactual,'12','01');
   var diciembref = moment(df).format("YYYY-MM-DD");
   // var range = moment().range(di, df);
   if (moment(fechahoy).isBetween(diciembrei,diciembref)) {
@@ -193,7 +196,7 @@ function view_blog(valorBuscar,pagina,cantidad){
                     '<div class="card-text pointsusp">' + val.Cuerpo + '</div>'+  
                   '</div>' +
                   '<div class="card-body">'+
-                    '<a href="novedades_view?idblog='+val.IDBlog+'&title='+val.Titulo+'" class="btn btn-primary btn-viewblog">Leer más &rarr;</a>' +
+                    '<a href="normativas_view?idblog='+val.IDBlog+'&title='+val.Titulo+'" class="btn btn-primary btn-viewblog">Leer más &rarr;</a>' +
                   '</div>'+
                   '<div class="card-footer d-flex text-muted justify-content-between">'+
                     '<div idcat="' + val.IDCategoria + '">' + val.Descripcion + '</div>'+
@@ -292,6 +295,54 @@ function view_blog2()
                         '<p>'+resp[0].Cuerpo+'</p>'+
                         '<hr>'+
                         '<p>Categoria: '+resp[0].Descripcion+'</p>');
+    }
+  });
+}
+/******************************************************************************************************************************************************************************/
+function view_video()
+{
+    $.getJSON("view_video", function (data){ 
+        $.each(data, function(index, val){
+            $('.viewvideo').append('<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 d-flex p-2">'+
+                        '<div class="card bg-light" style="width: 24rem;">'+
+                        '<a href="videos_view?idvideo='+val.IDVideo+'&title='+val.Titulo+'"><img class="card-img-top" src="'+ val.Imagen+'" alt="Card image cap"></a>'+
+                        '<div class="card-body">'+
+                        '<p class="card-text"><small class="text-muted">'+ val.Fecha +'</small></p>'+
+                          '<h5 class="card-title">'+ val.Titulo +'</h5>'+
+                          '<p class="card-text text-justify">'+ val.Cuerpo+'</p>'+
+                          '<p class="card-text"><small class="text-muted">Categoria: '+ val.Descripcion+'</small></p>'+
+                          '<p class="card-tex text-center"><a href="videos_view?idvideo='+val.IDVideo+'&title='+val.Titulo+'" class="btn btn-outline-info">Ver más</a></p>'+
+                        '</div>'+
+                        '</div>'+
+                      '</div>');
+            //$('.grid').append('<div class="grid-item"><img src="'+ val.Imagen+'" alt="Card image cap"></div>');
+        })
+    });
+}
+/******************************************************************************************************************************************************************************/
+function view_video2()
+{
+    var idvideo = getParameterByName('idvideo');
+    var data={};
+    data.idvideo = idvideo
+
+    $.ajax({
+    url : "view_video2",
+    type: "POST",
+    data: JSON.stringify(data),
+    dataType:"json",
+    success:function(resp){
+      
+    $('#viewvideo2').html('<div><small class="text-muted">'+ resp[0].Fecha +' / Categoria: '+ resp[0].Descripcion +'</small></div>'+
+              '<h3 class="mt-4 mb-3">'+resp[0].Titulo+'</h3>'+
+              '<br>'+
+              '<div class="embed-responsive embed-responsive-4by3">'+
+              '<iframe src="'+resp[0].Link+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'+
+            '</div>'+
+            '<br>'+
+            '<hr>'+
+            '<div class="text-center">COMPARTIR:</div>'+
+            '<div class="fb-share-button" data-href="http://saidcorp.pe/novedades_view?idblog=181&amp;title=Normas%20Tributarias" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fsaidcorp.pe%2Fnovedades_view%3Fidblog%3D181%26title%3DNormas%2BTributarias&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"></a></div>');
     }
   });
 }

@@ -4,7 +4,7 @@ class blog_model extends CI_Model {
 /************************************************************************************************************************************************************************/
 public function get_catblog()
     {
-        $query=$this->db->query("CALL sp_get_categoria()");
+        $query=$this->db->query("CALL sp_get_catblog()");
         if ($query->num_rows()>0)
         {
             return $query->result();

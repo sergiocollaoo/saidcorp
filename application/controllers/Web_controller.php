@@ -49,19 +49,35 @@ class Web_controller extends CI_Controller {
         $this->load->view('webmaster/footer-web.html');
     }
 /************************************************************************************************************************************************************************/
-    public function novedades()
+    public function normativas()
     {
         $this->load->helper('url');
         $this->load->view('webmaster/header-web.html');
-        $this->load->view('web/novedades.html');
+        $this->load->view('web/normativas.html');
         $this->load->view('webmaster/footer-web.html');
     }
 /************************************************************************************************************************************************************************/
-    public function novedades_view()
+    public function normativas_view()
     {
         $this->load->helper('url');
         $this->load->view('webmaster/header-web.html');
-        $this->load->view('web/novedades_view.html');
+        $this->load->view('web/normativas_view.html');
+        $this->load->view('webmaster/footer-web.html');
+    }
+/************************************************************************************************************************************************************************/
+    public function videos()
+    {
+        $this->load->helper('url');
+        $this->load->view('webmaster/header-web.html');
+        $this->load->view('web/videos.html');
+        $this->load->view('webmaster/footer-web.html');
+    }
+/************************************************************************************************************************************************************************/
+    public function videos_view()
+    {
+        $this->load->helper('url');
+        $this->load->view('webmaster/header-web.html');
+        $this->load->view('web/videos_view.html');
         $this->load->view('webmaster/footer-web.html');
     }
 /************************************************************************************************************************************************************************/
