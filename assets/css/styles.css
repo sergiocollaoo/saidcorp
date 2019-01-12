@@ -322,29 +322,42 @@ nav ul li a:hover{
   top: 80px;
 } */
 .vime{
-	display: block;
-  	margin-left: auto;
-  	margin-right: auto;
-  	width: 10em;
-  	height:10em;
-  	background-color: #46cc72;
-  	border-radius: 100%;
-  	  -ms-display: flex;
-  display: flex;
-  /* alineacion vertical */
-  align-items: center;
-   /* alineacion horizontal */
-  justify-content: center;
+  	width: 16em;
+  	height:14em;
+  	/*border-radius: 100%;*/
+       border-left: 100px solid #818181;
+     border-top: 50px solid transparent;
+     border-bottom: 50px solid transparent; 
+  	-ms-display: flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.vime-green{
+  	background-color: #52e0c6;
+}
+
+.vime-sky{
+	background-color: #6ceaff;	
 }
 
 .vime .title-vime{
-	position: relative;
-	display: block;
+	font-size: 30px;
+	word-wrap: break-word;
+	text-align: center;
+	width: 17px;
+	line-height: 30px;
+	margin-left: -60px;
+	color: white;
 }
 
 .vime .body-vime{
 	position: relative;
 	display: block;
+	font-size: 16px;
+	padding-left: 50px;
+	padding-right: 20px;
 }
 
 .valores{
