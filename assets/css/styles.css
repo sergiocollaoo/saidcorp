@@ -255,36 +255,27 @@ nav ul li a:hover{
 }
 
 /* Diseño difuminado con texto */
-.snip1361 {
-  position: relative;
-  overflow: hidden;
-  margin: 10px;
-  min-width: 100%;
-  max-width: 100%;
-  width: 100%;
-  color: #141414;
-  text-align: left;
-  line-height: 1.4em;
+.proposito{
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
 }
-.snip1361 * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
+
+.proposito img{
+	width: 100%
 }
-.snip1361 img {
-  max-width: 100%;
-  vertical-align: top;
+
+.proposito .txt-proposito{
+	position: relative;
+	display: block;
+	text-align: center;
+	font-size: 20px;
+	background-color: #ffffff;
+	top: -70px;
 }
-.snip1361 figcaption {
-  position: absolute;
-  top: calc(77%);
-  width: 100%;
-  background-color: #ffffff;
-  padding: 15px 25px 65px;
-}
-.snip1361 figcaption:before {
-  position: absolute;
+
+.proposito .txt-proposito:before{
+ position: absolute;
   content: '';
   z-index: 2;
   bottom: 100%;
@@ -294,72 +285,59 @@ nav ul li a:hover{
   background-image: -webkit-linear-gradient(top, transparent 0%, #ffffff 100%);
   background-image: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
 }
-/* .snip1361 h3,
-.snip1361 p {
-  margin: 0 0 10px;
-} */
-.snip1361 h3 {
-  font-weight: 300;
-  font-size: 1.4em;
-  line-height: 1.2em;
-  text-transform: uppercase;
-}
-.snip1361 p {
-  font-size: 0.9em;
-  letter-spacing: 1px;
-  opacity: 0.9;
-}
-/* .snip1361 a {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-} */
-/* .snip1361:hover figcaption,
-.snip1361.hover figcaption {
-  top: 80px;
-} */
+
+/* mision y vision */
 .vime{
-  	width: 16em;
-  	height:14em;
-  	/*border-radius: 100%;*/
-       border-left: 100px solid #818181;
-     border-top: 50px solid transparent;
-     border-bottom: 50px solid transparent; 
+  	width: 15em;
+  	height:15em;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 40px;
+  	border-radius: 100%;
   	-ms-display: flex;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
+	transition: all 0s ease 0s;
+	-webkit-transition: all 200ms ease-in-out;
+	-moz-transition: all 200ms ease-in-out;
+	-ms-transition: all 200ms ease-in-out;
+	-o-transition: all 200ms ease-in-out;
 }
 
 .vime-green{
-  	background-color: #52e0c6;
+  	border: 10px solid #52e0c6;
 }
 
 .vime-sky{
-	background-color: #6ceaff;	
+	border: 10px solid #6ceaff;
 }
 
 .vime .title-vime{
 	font-size: 30px;
-	word-wrap: break-word;
 	text-align: center;
-	width: 17px;
-	line-height: 30px;
-	margin-left: -60px;
-	color: white;
+	font-weight: bolder;
+	color: #003c95;
 }
 
 .vime .body-vime{
 	position: relative;
 	display: block;
 	font-size: 16px;
-	padding-left: 50px;
-	padding-right: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
+.vime:hover{
+	transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+}
+
+/* Valores */
 .valores{
   	display: block;
   	margin-left: auto;
@@ -438,8 +416,12 @@ nav ul li a:hover{
 	-ms-transform: translateY(-100px) scale(1);
 }
 
+.mandamientos{
+
+}
+
+ /* Historia */
 .escudo{
-	/*background-image: url('../images/logo_escudo.png');*/
 	background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('../images/logo_escudo.png');
 	background-position: center;
   	background-repeat: no-repeat;
@@ -1076,6 +1058,15 @@ adicionales
 		
 	}
 	
+	.proposito .txt-proposito{
+		position: relative;
+		display: block;
+		text-align: center;
+		font-size: 15px;
+		background-color: #ffffff;
+		top: -50px;
+	}
+
 	.img-flex{
 		top: 10px;
     	animation: zoomer 7s;
