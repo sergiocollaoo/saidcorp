@@ -67,6 +67,13 @@ $route['herramienta-empresarial'] 		= 'web_controller/herr_empresa';
 $route['contacto']		 				= 'web_controller/contacto';
 $route['contactoc']		 				= 'web_controller/contacto_c';
 /************************************************************************************************************************************************************************/
+$route['legal']		 					= 'web_controller/legal';
+$route['tributaria']		 			= 'web_controller/tributaria';
+$route['contable']		 				= 'web_controller/contable';
+$route['organizacional']		 		= 'web_controller/organizacional';
+$route['comunicaciones']		 		= 'web_controller/comunicaciones';
+$route['capacitaciones']		 		= 'web_controller/capacitaciones';
+/************************************************************************************************************************************************************************/
 $route['blog'] 							= 'blog_controller/blog';
 $route['get_catblog'] 					= 'blog_controller/get_catblog';
 $route['list_blog'] 					= 'blog_controller/list_blog';

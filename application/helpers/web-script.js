@@ -21,6 +21,16 @@ $(window).on('scroll', function(){
   }
 });
 
+/* card pegado */
+// var altura2 = $('<div class="breadcrumb"></div>').offset().top;
+// $(window).on('scroll', function(){
+//   if ($(window).scrollTop() > altura2) {
+//     $('.breadcrumb').addClass('menu-sticky');
+//   }else{
+//     $('.breadcrumb').removeClass('menu-sticky');
+//   }
+// });
+
 /* web slider de clientes */
   $('#slider-client').slick({
       cssEase: 'linear',

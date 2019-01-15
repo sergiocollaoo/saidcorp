@@ -41,6 +41,54 @@ class Web_controller extends CI_Controller {
         $this->load->view('webmaster/footer-web.html');
     }
 /************************************************************************************************************************************************************************/
+    public function legal()
+    {
+        $this->load->helper('url');
+        $this->load->view('webmaster/header-web.html');
+        $this->load->view('web/legal.html');
+        $this->load->view('webmaster/footer-web.html');
+    }
+/************************************************************************************************************************************************************************/
+    public function tributaria()
+    {
+        $this->load->helper('url');
+        $this->load->view('webmaster/header-web.html');
+        $this->load->view('web/tributaria.html');
+        $this->load->view('webmaster/footer-web.html');
+    }
+/************************************************************************************************************************************************************************/
+    public function contable()
+    {
+        $this->load->helper('url');
+        $this->load->view('webmaster/header-web.html');
+        $this->load->view('web/contable.html');
+        $this->load->view('webmaster/footer-web.html');
+    }
+/************************************************************************************************************************************************************************/
+    public function organizacional()
+    {
+        $this->load->helper('url');
+        $this->load->view('webmaster/header-web.html');
+        $this->load->view('web/organizacional.html');
+        $this->load->view('webmaster/footer-web.html');
+    }
+/************************************************************************************************************************************************************************/
+    public function comunicaciones()
+    {
+        $this->load->helper('url');
+        $this->load->view('webmaster/header-web.html');
+        $this->load->view('web/comunicaciones.html');
+        $this->load->view('webmaster/footer-web.html');
+    }
+/************************************************************************************************************************************************************************/
+    public function capacitaciones()
+    {
+        $this->load->helper('url');
+        $this->load->view('webmaster/header-web.html');
+        $this->load->view('web/capacitaciones.html');
+        $this->load->view('webmaster/footer-web.html');
+    }
+/************************************************************************************************************************************************************************/
     public function clientes()
     {
         $this->load->helper('url');
