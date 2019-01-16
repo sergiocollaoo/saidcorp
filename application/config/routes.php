@@ -67,6 +67,10 @@ $route['herramienta-empresarial'] 		= 'web_controller/herr_empresa';
 $route['contacto']		 				= 'web_controller/contacto';
 $route['contactoc']		 				= 'web_controller/contacto_c';
 /************************************************************************************************************************************************************************/
+//Caso temporal, para que las persona puedan ingresar al antiguo formato
+$route['novedades'] 					= 'web_controller/novedades';
+$route['novedades_view'] 				= 'web_controller/novedades_view';
+/************************************************************************************************************************************************************************/
 $route['legal']		 					= 'web_controller/legal';
 $route['tributaria']		 			= 'web_controller/tributaria';
 $route['contable']		 				= 'web_controller/contable';

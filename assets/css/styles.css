@@ -451,10 +451,17 @@ nav ul li a:hover{
 	top: -175px;
 	padding-left: 15px;
 	font-size: 42px;
+	font-style: italic;
+	font-weight: 500;
 }
 
 .service .title-service p{
 	margin: 0;
+}
+
+.details-service{
+	margin-left: .5em;
+	text-indent: -.65em;
 }
 /* ===================================
 3. Responsive media
@@ -1094,6 +1101,18 @@ adicionales
 		background-color: #ffffff;
 		top: -50px;
 	}
+
+	.service .title-service{
+		position: relative;
+		display: block;
+		color: white;
+		top: -105px;
+		padding-left: 15px;
+		padding-top: 5px;
+		font-size: 35px;
+		font-style: italic;
+		font-weight: 500;
+	}	
 
 	.img-flex{
 		top: 10px;
