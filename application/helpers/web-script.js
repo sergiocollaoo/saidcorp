@@ -34,9 +34,9 @@ $(window).on('scroll', function(){
 /* web slider de clientes */
   $('#slider-client').slick({
       cssEase: 'linear',
-      dots: true,
-      slidesToShow: 7,
-      slidesToScroll: 1,
+      dots: false,
+      slidesToShow: 5,
+      slidesToScroll: 3,
       autoplay: true,
       infinite: true,
       centerMode: true,

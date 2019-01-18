@@ -459,10 +459,23 @@ nav ul li a:hover{
 	margin: 0;
 }
 
-.details-service{
-	margin-left: .5em;
-	text-indent: -.65em;
+
+.details-service ul{
+	list-style: none;
+	list-style-image: url("../images/guion.png");
+	font-size: 14px;
+	margin-left: -20px;
 }
+
+.details-service ul li{
+	padding-bottom: 10px
+}
+/* .details-service ul li::before {
+    display: inline-block;
+    content: '-';
+} */
+
+
 /* ===================================
 3. Responsive media
 ==================================== */
