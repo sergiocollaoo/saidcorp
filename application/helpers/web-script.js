@@ -84,12 +84,14 @@ $(window).on('scroll', function(){
   });*/
 
 /*blog*/
-  select_categoria();
+  select_catblog();
+  select_catvideo();
   view_blog("",1,3);
   view_blog2();
 
   view_video();
   view_video2();
+  $(document).on('click','.catvideoblog',search_video);
 
   $("#busquedablog").on('click', function(){
     textobuscar = $('input[name=busqueda]').val();
@@ -198,6 +200,7 @@ function view_blog(valorBuscar,pagina,cantidad){
     dataType:"json",
     success:function(response){
       filas = "";
+      attfilas = "";
       $.each(response.ver_blog,function(key,val){
         filas+='<div class="card mb-4" idblog="' + val.IDBlog + '">' +
                   '<img class="card-img-top" src="' + val.Imagen + '" alt="Card image cap">' +
@@ -213,11 +216,28 @@ function view_blog(valorBuscar,pagina,cantidad){
                     '<div>Publicado el ' + val.Fecha + '</div>'+
                   '</div>'+
                 '</div>';
+
+        attfilas+='<div class="card mb-4" idblog="' + val.IDBlog + '">' +
+                  '<img class="card-img-top" src="' + val.Imagen + '" alt="Card image cap">' +
+                  '<div class="card-body">' +
+                    '<h2 class="card-title">' + val.Titulo + '</h2>' +
+                    '<div class="card-text pointsusp">' + val.Cuerpo + '</div>'+  
+                  '</div>' +
+                  '<div class="card-body">'+
+                    '<a href="novedades_view?idblog='+val.IDBlog+'&title='+val.Titulo+'" class="btn btn-primary btn-viewblog">Leer más &rarr;</a>' +
+                  '</div>'+
+                  '<div class="card-footer d-flex text-muted justify-content-between">'+
+                    '<div idcat="' + val.IDCategoria + '">' + val.Descripcion + '</div>'+
+                    '<div>Publicado el ' + val.Fecha + '</div>'+
+                  '</div>'+
+                '</div>';           
       });
-      if (filas == "") {
+      if ((filas == "") && (attfilas == "")) {
         $("#viewblog").html('<div class="text-center text-muted">No existen resultados</div><br><br>');
+        $("#attnovedades").html('<div class="text-center text-muted">No existen resultados</div><br><br>');
       }else{
         $("#viewblog").html(filas);
+        $("#attnovedades").html(attfilas);
       }
       
 
@@ -352,9 +372,52 @@ function view_video2()
             '<br>'+
             '<hr>'+
             '<div class="text-center">COMPARTIR:</div>'+
-            '<div class="fb-share-button" data-href="http://saidcorp.pe/novedades_view?idblog=181&amp;title=Normas%20Tributarias" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fsaidcorp.pe%2Fnovedades_view%3Fidblog%3D181%26title%3DNormas%2BTributarias&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"></a></div>');
+            '<div class="fb-share-button" data-href="http://saidcorp.pe/videos_view?idvideo=17&title=#NuestraFamilia" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fsaidcorp.pe%2Fnovedades_view%3Fidblog%3D181%26title%3DNormas%2BTributarias&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"></a></div>');
     }
   });
+}
+/******************************************************************************************************************************************************************************/
+function search_video(){
+
+    var data={};
+    data.v_buscar = $(this).attr('buscav');
+
+    $.ajax({
+        type: "POST",
+        url: "get_catvideoblog",
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        beforeSend: function () 
+        {
+            $('.viewvideo').html('');
+        },
+        success: function (data)
+        {  
+          $.each(data, function(index, val){
+            $('.viewvideo').append('<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 d-flex p-2">'+
+                        '<div class="card bg-light" style="width: 24rem;">'+
+                        '<a href="videos_view?idvideo='+val.IDVideo+'&title='+val.Titulo+'"><img class="card-img-top" src="'+ val.Imagen+'" alt="Card image cap"></a>'+
+                        '<div class="card-body">'+
+                        '<p class="card-text"><small class="text-muted">'+ val.Fecha +'</small></p>'+
+                          '<h5 class="card-title">'+ val.Titulo +'</h5>'+
+                          '<p class="card-text text-justify">'+ val.Cuerpo+'</p>'+
+                          '<p class="card-text"><small class="text-muted">Categoria: '+ val.Descripcion+'</small></p>'+
+                          '<p class="card-tex text-center"><a href="videos_view?idvideo='+val.IDVideo+'&title='+val.Titulo+'" class="btn btn-outline-info">Ver más</a></p>'+
+                        '</div>'+
+                        '</div>'+
+                      '</div>');
+         })
+        },
+        complete: function () 
+        {     
+          
+        },
+        error: function(data)
+        {
+        }
+    });
 }
 /******************************************************************************************************************************************************************************/
 function view_hour(){
@@ -394,7 +457,7 @@ function view_hour(){
 
         window.onload=view_hour();
 /******************************************************************************************************************************************************************************/
-function select_categoria()
+function select_catblog()
 {
     $.getJSON("get_catblog", function (data){
         concat = '';
@@ -416,6 +479,18 @@ function select_categoria()
                     }
                 }
             });
+    });
+}
+/******************************************************************************************************************************************************************************/
+function select_catvideo()
+{
+    $.getJSON("get_catvideo", function (data){
+        concat = '';
+        concat += '<a class="catvideoblog" buscav=" ">Todos</a>';
+        $.each(data, function(index, val){
+          concat += '<a class="catvideoblog" buscav="' + val.Descripcion + '">' + val.Descripcion + '</a>';
+        })
+        $('.catvideos').html(concat);
     });
 }
 /******************************************************************************************************************************************************************************/

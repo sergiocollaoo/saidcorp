@@ -66,6 +66,7 @@ $route['vcontacto'] 					= 'web_controller/viewcontacto';
 $route['herramienta-empresarial'] 		= 'web_controller/herr_empresa';
 $route['contacto']		 				= 'web_controller/contacto';
 $route['contactoc']		 				= 'web_controller/contacto_c';
+$route['politicas-de-privacidad']		= 'web_controller/politicas_datospersonales';
 /************************************************************************************************************************************************************************/
 //Caso temporal, para que las persona puedan ingresar al antiguo formato
 $route['novedades'] 					= 'web_controller/novedades';
@@ -86,8 +87,14 @@ $route['subir_imagen'] 					= 'blog_controller/subir_imagen';
 $route['view_blog'] 					= 'blog_controller/view_blog';
 $route['view_blog2'] 					= 'blog_controller/view_blog2';
 /************************************************************************************************************************************************************************/
+$route['video_blog'] 					= 'video_controller/video_blog';
+$route['get_catvideo'] 					= 'video_controller/get_catvideo';
+$route['list_videoblog'] 				= 'video_controller/list_videoblog';
+$route['insert_videoblog'] 				= 'video_controller/insert_videoblog';
+$route['subir_videoimagen'] 			= 'video_controller/subir_videoimagen';
 $route['view_video'] 					= 'video_controller/view_video';
 $route['view_video2'] 					= 'video_controller/view_video2';
+$route['get_catvideoblog'] 				= 'video_controller/get_catvideoblog';
 /************************************************************************************************************************************************************************/
 $route['view_ciiu'] 					= 'web_controller/view_ciiu';
 /************************************************************************************************************************************************************************/

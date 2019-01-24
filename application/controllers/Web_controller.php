@@ -144,6 +144,30 @@ class Web_controller extends CI_Controller {
         $this->load->view('webmaster/footer-web.html');
     }
 /************************************************************************************************************************************************************************/
+    public function novedades()
+    {
+        $this->load->helper('url');
+        $this->load->view('webmaster/header-web.html');
+        $this->load->view('web/novedades.html');
+        $this->load->view('webmaster/footer-web.html');
+    }
+/************************************************************************************************************************************************************************/
+    public function novedades_view()
+    {
+        $this->load->helper('url');
+        $this->load->view('webmaster/header-web.html');
+        $this->load->view('web/novedades_view.html');
+        $this->load->view('webmaster/footer-web.html');
+    }
+/************************************************************************************************************************************************************************/
+    public function politicas_datospersonales()
+    {
+        $this->load->helper('url');
+        $this->load->view('webmaster/header-web.html');
+        $this->load->view('web/politicas_datospersonales.html');
+        $this->load->view('webmaster/footer-web.html');
+    }
+/************************************************************************************************************************************************************************/
 /*    public function indexb()
     {
         $this->load->view('web/indexb.html');

@@ -35,6 +35,14 @@ public function insert_blog()
         echo json_encode($insert_blog);
     }
 /************************************************************************************************************************************************************************/
+public function delete_blog()
+    {
+        $json = file_get_contents('php://input');
+        $data = json_decode($json,TRUE);
+        $delete_blog=$this->blog_model->delete_blog($data);
+        echo json_encode($delete_blog);
+    }
+/************************************************************************************************************************************************************************/
 public function subir_imagen()
     {
        if(isset($_FILES['imagen']['tmp_name']))

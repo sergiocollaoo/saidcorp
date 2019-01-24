@@ -1,22 +1,22 @@
 <div class="breadcrumb-holder">
 </div>
 <section class="forms">
-  <div class="container-fluid" id="listblog">
+  <div class="container-fluid" id="listvideoblog">
     <div class="row">
       <div class="col-lg-12">
         <header> 
-          <h1 class="h2 display">Blog</h1>
+          <h1 class="h2 display">Video Blog</h1>
         </header>
         <div class="form-group" style="text-align: right;">
           <div class="col-lg-12">
-            <button type="button" class="btn btn-primary" id="btnAgregarBlog">Agregar</button>
+            <button type="button" class="btn btn-primary" id="btnAgregarVideoBlog">Agregar</button>
             <!-- Modal-->
             
           </div>
         </div>
       </div>
     </div>
-    <table id="table-blog" class="display responsive" width="100%" cellspacing="0">
+    <table id="table-videoblog" class="display compact" style="width: 100%;" cellspacing="0">
       <thead>
         <tr>
           <th>N°</th>
@@ -32,38 +32,44 @@
       </tbody>
     </table>
   </div>
-  <div id="agregarblog" style="display: none;">
+  <div id="agregarvideoblog" style="display: none;">
     <div class="row">
       <div class="col-12">
         <div class="modal-header">
           <h1 class="h2 display">Agregar</h1>
-          <button type="button" class="btn btn-danger" id="btnCancelarBlog">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="btnCancelarVideoBlog">Cancelar</button>
         </div>
         <div class="modal-body">
           <!-- ***************************** -->
-          <form onsubmit="return false" id="form-blog">
+          <form onsubmit="return false" id="form-videoblog">
             <div class="form-group row">
               <legend class="col-sm-2 col-form-label">Título <span class="required">*</span></legend>
               <div class="col-sm-10">
-                <input class="form-control" id="txt-titulo" type="text" />
+                <input class="form-control" id="txt-videotitulo" type="text" />
               </div>
             </div>
             <div class="form-group row">
               <legend class="col-sm-2 col-form-label">Cuerpo <span class="required">*</span></legend>
               <div class="col-sm-10">
-                <textarea id="txt-cuerpo"></textarea>
+                <textarea id="txt-videocuerpo" style="resize: none;width: 100%;"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <legend class="col-sm-2 col-form-label">Link embed <span class="required">*</span></legend>
+              <div class="col-sm-10">
+                <input class="form-control" id="txt-link" type="text" />
               </div>
             </div>
             <div class="form-group row">
               <legend class="col-sm-2 col-form-label">Imagen <span class="required">*</span></legend>
               <div class="col-sm-10">
-                <input type="file" class="form-control-file" id="txt-upimagen">
+                <input type="file" class="form-control-file" id="txt-videoupimagen">
               </div>
             </div>
             <fieldset class="form-group">
               <div class="row">
                 <legend class="col-form-label col-sm-2 pt-0">Categoria <span class="required">*</span></legend>
-                <div class="col-sm-10" id="listcat">
+                <div class="col-sm-10" id="listvideocat">
                   
                 </div>
               </div>

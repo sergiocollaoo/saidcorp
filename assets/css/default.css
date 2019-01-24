@@ -159,6 +159,16 @@ ul.clients li:hover {
 .bloco a.catblog{cursor: pointer; color:#2196f3;}
 .bloco a.catblog:hover{cursor: pointer; color:#167ed1; text-decoration:underline;}
 
+.catvideoblog {
+	padding: 20px;
+	cursor: pointer;
+	color: #2196f3 !important;
+}
+
+.catvideoblog:hover {
+	color: #04589b !important;
+}
+
 .var-middle{
 	padding-top: 20px;
 }

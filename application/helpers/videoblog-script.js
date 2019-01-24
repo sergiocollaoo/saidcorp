@@ -1,9 +1,11 @@
-$(document).ready(init_blog);
+$(document).ready(init_videoblog);
 /******************************************************************************************************************************************************************************/
-function init_blog()
-{
-
-  $('#table-blog').DataTable({
+function init_videoblog()
+{    
+  // $('#txt-cuerpo').froalaEditor({
+  //   language: 'es'
+  // });
+  $('#table-videoblog').DataTable({
     "ordering": false,
     "info":     false,
     "searching": false,
@@ -14,32 +16,27 @@ function init_blog()
     }
   });
 
-  $('#txt-cuerpo').froalaEditor({
-    language: 'es'
-  });
-
-  fnc_list_blog();
-  fnc_get_catblog();
-  $('#form-blog').on('submit',fnc_insert_blog);
-  $(document).on('click','.btn-delete-blog', fnc_delete_blog);
-
+  fnc_list_videoblog();
+  fnc_get_catvideo();
+  $('#form-videoblog').on('submit',fnc_insert_videoblog);
+  $(document).on('click','.btn-delete-videoblog', fnc_delete_videoblog);
 }
 /******************************************************************************************************************************************************************************/
-$('#btnAgregarBlog').on('click', function(){
-    $('#agregarblog').show();
-    $('#listblog').hide();
+$('#btnAgregarVideoBlog').on('click', function(){
+    $('#agregarvideoblog').show();
+    $('#listvideoblog').hide();
 });
 
-$('#btnCancelarBlog').on('click', function(){
-    $('#agregarblog').hide();
-    $('#listblog').show();
+$('#btnCancelarVideoBlog').on('click', function(){
+    $('#agregarvideoblog').hide();
+    $('#listvideoblog').show();
 });
 /***********************************************************************************************************************************************************/
-function fnc_get_catblog()
+function fnc_get_catvideo()
 {
-    $.getJSON("get_catblog", function (data){ 
+    $.getJSON("get_catvideo", function (data){ 
         $.each(data, function(index, val){
-            $('#listcat').append('<div class="form-check">' +
+            $('#listvideocat').append('<div class="form-check">' +
                                   '<input class="form-check-input" type="radio" name="radCategoria" value="'+val.IDCategoria+'">' +
                                   '<label>' + val.Descripcion + ' </label>' +
                                 '</div>');
@@ -47,34 +44,34 @@ function fnc_get_catblog()
     });
 }
 /***********************************************************************************************************************************************************/
-function fnc_list_blog()
+function fnc_list_videoblog()
 {
-    $.getJSON("list_blog", function (data){ 
+    $.getJSON("list_videoblog", function (data){ 
 
-    $('#table-blog').DataTable().row().clear().draw( false );
+    $('#table-videoblog').DataTable().row().clear().draw( false );
     for (var i = 0; i<data.length;i++) 
     {
-        $('#table-blog').DataTable().row.add([i+1,
+        $('#table-videoblog').DataTable().row.add([i+1,
         data[i].Fecha,
         data[i].Descripcion,
         data[i].Titulo,
         data[i].Cuerpo,
-        '<a class="btn btn-editar-blog" data-idblog="'+data[i].IDBlog+'"><i class="fa fa-edit"></i></a>'+
-        '<a class="btn btn-delete-blog" data-idblog="'+data[i].IDBlog+'"><i class="fa fa-trash"></i></a>'
+        '<a class="btn btn-editar-videoblog" data-idvideo="'+data[i].IDVideo+'"><i class="fa fa-edit"></i></a>'+
+        '<a class="btn btn-delete-videoblog" data-idvideo="'+data[i].IDVideo+'"><i class="fa fa-trash"></i></a>'
         ]).draw(false);
     }         
     });
 }
 /***********************************************************************************************************************************************************/
-function fnc_insert_blog ()
+function fnc_insert_videoblog ()
 {
-    var inputFileImage          =   $('#txt-upimagen')[0];
+    var inputFileImage          =   $('#txt-videoupimagen')[0];
     var file                    =   inputFileImage.files[0];
     var data_image              = new FormData();
     data_image.append('imagen',file)
 
     $.ajax({
-        url: "subir_imagen",
+        url: "subir_videoimagen",
         type:'POST',
         contentType:false,
         data: data_image,
@@ -87,13 +84,14 @@ function fnc_insert_blog ()
         {
           var data={};    
           data.id_categoria           = $('input:radio[name=radCategoria]:checked').val()
-          data.txt_titulo             = $('#txt-titulo').val();
-          data.txt_cuerpo             = $('#txt-cuerpo').val();
-          data.txt_upimagen           = resp;
+          data.txt_titulo             = $('#txt-videotitulo').val();
+          data.txt_cuerpo             = $('#txt-videocuerpo').val();
+          data.txt_link               = $('#txt-link').val();
+          data.txt_videoupimagen      = resp;
 
           $.ajax({
               type: "POST",
-              url: "insert_blog",
+              url: "insert_videoblog",
               data: JSON.stringify(data),
               contentType: "application/json; charset=utf-8",
               dataType: "json",
@@ -105,13 +103,13 @@ function fnc_insert_blog ()
               success: function (resp)
               {  
                   alert('Se registró correctamente');
-                  fnc_list_blog();
+                  fnc_list_videoblog();
               },
               complete: function () 
               { 
 
-                $('#agregarblog').hide();
-                $('#listblog').show();
+                $('#agregarvideoblog').hide();
+                $('#listvideoblog').show();
                 fnc_limpiar_campos();
                 $('input:radio[name=radCategoria]').prop('checked', false);
                 $('.fr-view').html('');
@@ -123,17 +121,17 @@ function fnc_insert_blog ()
         }
     });    
 }
-/***********************************************************************************************************************************************************/
-function fnc_delete_blog()
+/******************************************************************************************************************************************************************************/
+function fnc_delete_videoblog()
 {
-    var r = confirm("¿Desea eliminar el siguiente Blog?");
+    var r = confirm("¿Desea eliminar el siguiente Video Blog?");
     if (r == true) {
     var data={}; 
-    data.ID_Blog  = parseInt($(this).attr('data-idblog'));
+    data.ID_Video  = parseInt($(this).attr('data-idvideo'));
 
         $.ajax({
             type: "POST",
-            url: "delete_blog",
+            url: "delete_videoblog",
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -143,7 +141,7 @@ function fnc_delete_blog()
             },
             success: function (resp) 
             {  
-               fnc_list_blog();
+               fnc_list_videoblog();
 
             },
             complete: function () 

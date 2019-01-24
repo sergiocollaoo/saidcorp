@@ -38,6 +38,13 @@ public function insert_blog($data)
         $query=$this->db->query("CALL sp_insert_blog($id_categoria ,'$v_titulo','$v_cuerpo','$v_imagen')");   
     }
 /************************************************************************************************************************************************************************/
+public function delete_blog($data)
+    {
+        $ID_Blog       = $data['ID_Blog'];
+
+        $query=$this->db->query("CALL sp_delete_blog($ID_Blog)");   
+    }
+/************************************************************************************************************************************************************************/
 public function view_blog($buscar,$inicio = FALSE, $cantidadregistro = FALSE)
     {
         $this->db->query('SET lc_time_names = es_ES');

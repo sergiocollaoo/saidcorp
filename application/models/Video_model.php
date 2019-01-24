@@ -2,41 +2,65 @@
 
 class video_model extends CI_Model {
 /************************************************************************************************************************************************************************/
-// public function get_catblog()
-//     {
-//         $query=$this->db->query("CALL sp_get_catvideo()");
-//         if ($query->num_rows()>0)
-//         {
-//             return $query->result();
-//         }
-//         else
-//         {
-//             return false;
-//         } 
-//     }
+public function get_catvideo()
+    {
+        $query=$this->db->query("CALL sp_get_catvideo()");
+        if ($query->num_rows()>0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return false;
+        }
+    }
 /************************************************************************************************************************************************************************/
-// public function list_blog()
-//   {
-//     $query=$this->db->query("CALL sp_get_blog();");
-//     if ($query->num_rows()>0)
-//     {
-//       return $query->result();
-//     }
-//     else
-//     {
-//       return false;
-//     } 
-//   }
+//search para videos
+public function get_catvideoblog($data)
+    {
+        $v_buscar  = $data['v_buscar'];
+
+        $query=$this->db->query("CALL sp_get_catvideoblog('$v_buscar')");
+        if ($query->num_rows()>0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return false;
+        } 
+    }
 /************************************************************************************************************************************************************************/
-/*public function insert_blog($data)
+public function list_videoblog()
+  {
+    $query=$this->db->query("CALL sp_get_videoblog();");
+    if ($query->num_rows()>0)
+    {
+      return $query->result();
+    }
+    else
+    {
+      return false;
+    } 
+  }
+/************************************************************************************************************************************************************************/
+public function insert_videoblog($data)
     {
         $id_categoria       = $data['id_categoria'];
         $v_titulo           = $data['txt_titulo'];
-        $v_cuerpo    	    = $data['txt_cuerpo'];
-        $v_imagen           = $data['txt_upimagen'];
+        $v_cuerpo           = $data['txt_cuerpo'];
+        $v_link        	    = $data['txt_link'];
+        $v_imagen           = $data['txt_videoupimagen'];
 
-        $query=$this->db->query("CALL sp_insert_blog($id_categoria ,'$v_titulo','$v_cuerpo','$v_imagen')");   
-    }*/
+        $query=$this->db->query("CALL sp_insert_videoblog($id_categoria ,'$v_titulo','$v_cuerpo', '$v_link','$v_imagen')");   
+    }
+/************************************************************************************************************************************************************************/
+public function delete_videoblog($data)
+    {
+        $ID_Video       = $data['ID_Video'];
+
+        $query=$this->db->query("CALL sp_delete_videoblog($ID_Video)");   
+    }
 /************************************************************************************************************************************************************************/
 public function view_video()
     {
