@@ -32,7 +32,7 @@ body{
 }
 
 .img-logo{
-	width: 175px;
+	width: 115px;
 	height: auto;
 }
 
@@ -58,6 +58,13 @@ nav ul li a.active{
 	font-size: .8rem;
 }
 
+.sub-link2:hover{
+	color: #fff !important;
+	background-color: #00AFEF !important;
+	font-size: .8rem;
+
+}
+
 nav ul li a:hover{
 	color: #00AFEF;
 	font-weight: bold;
@@ -81,7 +88,7 @@ nav ul li a:hover{
 	z-index: 999;
 	top: 0;
 	width: 100%;
-	height: 80px;
+	height: 65px;
 	max-width: 100%;
 	font-size: .6em;
 }
@@ -426,13 +433,16 @@ nav ul li a:hover{
 
  /* Historia */
 .escudo{
-	background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('../images/logo_escudo.png');
+	background: linear-gradient(rgba(255,255,255,.9), rgba(255,255,255,.9)), url('../images/logo_escudo.png');
 	background-position: center;
   	background-repeat: no-repeat;
-	background-size: 60%;
+	background-size: 45%;
 	transition: 0s;
 }
 
+.lead {
+	font-size: 1rem !important;
+}
 
 .service{
 	position: relative;

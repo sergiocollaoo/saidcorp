@@ -21,16 +21,6 @@ $(window).on('scroll', function(){
   }
 });
 
-/* card pegado */
-// var altura2 = $('<div class="breadcrumb"></div>').offset().top;
-// $(window).on('scroll', function(){
-//   if ($(window).scrollTop() > altura2) {
-//     $('.breadcrumb').addClass('menu-sticky');
-//   }else{
-//     $('.breadcrumb').removeClass('menu-sticky');
-//   }
-// });
-
 /* web slider de clientes */
   $('#slider-client').slick({
       cssEase: 'linear',
@@ -85,10 +75,10 @@ $(window).on('scroll', function(){
 
 /*blog*/
   select_catblog();
-  select_catvideo();
   view_blog("",1,3);
   view_blog2();
 
+  select_catvideo();
   view_video();
   view_video2();
   $(document).on('click','.catvideoblog',search_video);
@@ -334,7 +324,7 @@ function view_video()
     $.getJSON("view_video", function (data){ 
         $.each(data, function(index, val){
             $('.viewvideo').append('<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 d-flex p-2">'+
-                        '<div class="card bg-light" style="width: 24rem;">'+
+                        '<div class="card bg-light">'+
                         '<a href="videos_view?idvideo='+val.IDVideo+'&title='+val.Titulo+'"><img class="card-img-top" src="'+ val.Imagen+'" alt="Card image cap"></a>'+
                         '<div class="card-body">'+
                         '<p class="card-text"><small class="text-muted">'+ val.Fecha +'</small></p>'+
@@ -397,7 +387,7 @@ function search_video(){
         {  
           $.each(data, function(index, val){
             $('.viewvideo').append('<div class=" col-lg-4 col-md-6 col-sm-12 col-xs-12 d-flex p-2">'+
-                        '<div class="card bg-light" style="width: 24rem;">'+
+                        '<div class="card bg-light">'+
                         '<a href="videos_view?idvideo='+val.IDVideo+'&title='+val.Titulo+'"><img class="card-img-top" src="'+ val.Imagen+'" alt="Card image cap"></a>'+
                         '<div class="card-body">'+
                         '<p class="card-text"><small class="text-muted">'+ val.Fecha +'</small></p>'+
@@ -412,7 +402,7 @@ function search_video(){
         },
         complete: function () 
         {     
-          
+
         },
         error: function(data)
         {
@@ -485,12 +475,13 @@ function select_catblog()
 function select_catvideo()
 {
     $.getJSON("get_catvideo", function (data){
-        concat = '';
-        concat += '<a class="catvideoblog" buscav=" ">Todos</a>';
+        concav = '';
+        concav += '<a href="javascript:void(0)" class="catvideoblog" buscav="">Todos</a>';
         $.each(data, function(index, val){
-          concat += '<a class="catvideoblog" buscav="' + val.Descripcion + '">' + val.Descripcion + '</a>';
+          concav += '<a href="javascript:void(0)" class="catvideoblog" buscav="' + val.Descripcion + '">' + val.Descripcion + '</a>';
         })
-        $('.catvideos').html(concat);
+
+        $('.catvideos').html(concav);
     });
 }
 /******************************************************************************************************************************************************************************/
