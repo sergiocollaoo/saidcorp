@@ -178,10 +178,17 @@ ul.clients li:hover {
 }
 
 .pointsusp{
-	width: 600px;
+/*	width: 600px;
 	white-space: nowrap;
 	overflow: hidden;
-	text-overflow: ellipsis;
+	text-overflow: ellipsis;*/
+
+/* -moz-hyphens:auto;
+ -ms-hyphens:auto;
+ -webkit-hyphens:auto;
+ -o-hyphens:auto;
+ hyphens:auto;
+ word-wrap:break-word;*/
 }
 
 .pointsusp p {

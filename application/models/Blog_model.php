@@ -52,7 +52,7 @@ public function view_blog($buscar,$inicio = FALSE, $cantidadregistro = FALSE)
         $this->db->from('dba_blog b');
         $this->db->join('dba_categoria c','c.IDCategoria = b.IDCategoria');
         $this->db->order_by('b.IDBlog', 'DESC');
-        $this->db->like("Titulo",$buscar);
+        $this->db->like("Cuerpo",$buscar);
         $this->db->or_like("Descripcion",$buscar);
         if ($inicio !== FALSE && $cantidadregistro !== FALSE) {
             $this->db->limit($cantidadregistro,$inicio);
