@@ -192,23 +192,28 @@ function view_blog(valorBuscar,pagina,cantidad){
       filas = "";
       attfilas = "";
       $.each(response.ver_blog,function(key,val){
-        filas+='<div class="card mb-4" idblog="' + val.IDBlog + '">' +
-                  '<img class="card-img-top" src="' + val.Imagen + '" alt="Card image cap">' +
-                  '<div class="card-body">' +
-                    '<h2 class="card-title">' + val.Titulo + '</h2>' +
-                    '<div class="card-text pointsusp">' + val.Cuerpo + '</div>'+  
-                  '</div>' +
-                  '<div class="card-body">'+
-                    '<a href="normativas_view?idblog='+val.IDBlog+'&title='+val.Titulo+'" class="btn btn-primary btn-viewblog">Leer más &rarr;</a>' +
-                  '</div>'+
-                  '<div class="card-footer d-flex text-muted justify-content-between">'+
-                    '<div idcat="' + val.IDCategoria + '">' + val.Descripcion + '</div>'+
-                    '<div>Publicado el ' + val.Fecha + '</div>'+
-                  '</div>'+
+        filas+= '<div class="mb-4" idblog="' + val.IDBlog + '">'+
+                    '<div class="row no-gutters mb-3">'+
+                        '<div class="col-4">'+
+                            '<img src="' + val.Imagen + '" class="img-fluid" alt="">'+
+                        '</div>'+
+                        '<div class="col-8">'+
+                            '<div class="card-block px-4">'+
+                      '<p class="text-muted" style="font-size: 12px;">Publicado el ' + val.Fecha + '</p>'+
+                                '<h5 class="card-title">' + val.Titulo + '</h5>'+
+                                '<div class="card-text pointsusp">' + val.Cuerpo + '</div>'+
+                                '<div class="d-flex justify-content-between">'+
+                                  '<a href="normativas_view?idblog='+val.IDBlog+'&title='+val.Titulo+'" class="btn btn-primary btn-viewblog">Leer más &rarr;</a>'+
+                                  '<span class="text-muted d-flex align-items-center" idcat="' + val.IDCategoria + '" style="font-size: 12px;">Categoria: ' + val.Descripcion + '</span>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                    '<hr>'+
                 '</div>';
 
         attfilas+='<div class="card mb-4" idblog="' + val.IDBlog + '">' +
-                  '<img class="card-img-top" src="' + val.Imagen + '" alt="Card image cap">' +
+                  '<img class="card-img-top" src="assets/images/blog/20190123_082015_FWGCULRB5E.png" alt="Card image cap">' +
                   '<div class="card-body">' +
                     '<h2 class="card-title">' + val.Titulo + '</h2>' +
                     '<div class="card-text pointsusp">' + val.Cuerpo + '</div>'+  
