@@ -91,5 +91,13 @@ public function view_blog2()
         $view_blog2=$this->blog_model->view_blog2($data['idblog']);
         echo json_encode($view_blog2);
     }
+/************************************************************************************************************************************************************************/
+    public function get_adsblog()
+    {
+        $json = file_get_contents('php://input');
+        $data = json_decode($json,TRUE);
+        $get_adsblog=$this->blog_model->get_adsblog($data);
+        echo json_encode($get_adsblog);
+    }
 /***********************************************************************************************************************************************************************/
 }

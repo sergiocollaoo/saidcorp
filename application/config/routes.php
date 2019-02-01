@@ -87,6 +87,7 @@ $route['delete_blog'] 					= 'blog_controller/delete_blog';
 $route['subir_imagen'] 					= 'blog_controller/subir_imagen';
 $route['view_blog'] 					= 'blog_controller/view_blog';
 $route['view_blog2'] 					= 'blog_controller/view_blog2';
+$route['get_adsblog'] 					= 'blog_controller/get_adsblog';
 /************************************************************************************************************************************************************************/
 $route['video_blog'] 					= 'video_controller/video_blog';
 $route['get_catvideo'] 					= 'video_controller/get_catvideo';

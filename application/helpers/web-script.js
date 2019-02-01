@@ -3,11 +3,17 @@ $(document).ready(init_web);
 /******************************************************************************************************************************************************************************/
 function init_web()
 {
-$(".loader").delay(1600).fadeOut("slow");
+  var IDBlo = sessionStorage.getItem("vidblog");
+  var IDCat = sessionStorage.getItem("vcategoria");
 
-$('.carousel').carousel({
-  interval: 10000
-})
+  $('.datosnormas').attr('idblo', IDBlo)
+  $('.datosnormas').attr('idcat', IDCat)
+
+  $(".loader").delay(1600).fadeOut("slow");
+
+  $('.carousel').carousel({
+    interval: 10000
+  })
 
 navidad();
 
@@ -73,10 +79,17 @@ $(window).on('scroll', function(){
           e.preventDefault();
   });*/
 
+$('.viewserv').on('click', function(e){
+  $(this).siblings().toggle();
+  $(this).text($(this).text() == '-' ? '+' : '-');
+  e.preventDefault();
+});
+
 /*blog*/
   select_catblog();
   view_blog("",1,3);
   view_blog2();
+  fnc_get_adsblog();
 
   select_catvideo();
   view_video();
@@ -316,14 +329,59 @@ function view_blog2()
                         '<hr>'+
                         '<p>Publicado el '+resp[0].Fecha+'</p>'+
                         '<hr>'+
-                        '<h3 class="card-title">'+resp[0].Titulo+'</h3>'+
+                        '<h3 class="card-title" idnorm="'+resp[0].IDBlog+'">'+resp[0].Titulo+'</h3>'+
                         '<p>'+resp[0].Cuerpo+'</p>'+
                         '<hr>'+
-                        '<p>Categoria: '+resp[0].Descripcion+'</p>');
+                        '<p class="prb" cat="'+resp[0].IDCategoria+'">Categoria: '+resp[0].Descripcion+'</p>');
+    
+    sessionStorage.setItem("vcategoria", resp[0].IDCategoria);
+    sessionStorage.setItem("vidblog", resp[0].IDBlog);
     }
   });
 }
 /******************************************************************************************************************************************************************************/
+function fnc_get_adsblog(){
+
+    var data={};
+    data.v_blog  = $('.datosnormas').attr('idblo');
+    data.v_categoria  = $('.datosnormas').attr('idcat');
+
+    alert($('.datosnormas').attr('idcat'));
+    $.ajax({
+        type: "POST",
+        url: "get_adsblog",
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        beforeSend: function () 
+        {
+            $('.viewvideo').html('');
+        },
+        success: function (data)
+        {  
+          $.each(data, function(index, val){
+            $('.ads').append('<div class="col-lg-12 col-md-4 col-sm-4 col-xs-4 mb-2">'+
+                                '<div class="card text-center bg-light card-sticky">'+
+                                  '<img class="card-img-top" src="'+val.Imagen+'" alt="Card image cap">'+
+                                  '<div class="card-body">'+
+                                    '<p class="card-title text-center">'+val.Titulo+'</p>'+
+                                    '<div class="card-text text-justify pointsusp" style="font-size: 12px;">'+val.Cuerpo+'</div>'+
+                                    '<a href="normativas_view?idblog='+val.IDBlog+'&title='+val.Titulo+'" class="badge badge-info btn-sm">Leer más &rarr;</a>'+
+                                  '</div>'+
+                                '</div>'+
+                              '</div>');
+         })
+        },
+        complete: function () 
+        {     
+        },
+        error: function(data)
+        {
+        }
+    });
+}
+/***********************************************************************************************************************************************************/
 function view_video()
 {
     $.getJSON("view_video", function (data){ 

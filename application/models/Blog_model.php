@@ -72,4 +72,20 @@ public function view_blog2($idblog)
         return $consulta->result();
     }
 /************************************************************************************************************************************************************************/
+public function get_adsblog($data)
+    {
+        $v_categoria    = $data['v_categoria'];
+        $v_blog         = $data['v_blog'];
+
+        $query=$this->db->query("CALL sp_get_adsblog($v_categoria, $v_blog)");
+        if ($query->num_rows()>0)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return false;
+        }  
+    }
+/************************************************************************************************************************************************************************/
 }

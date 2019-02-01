@@ -20,6 +20,7 @@ function init_blog()
 
   fnc_list_blog();
   fnc_get_catblog();
+
   $('#form-blog').on('submit',fnc_insert_blog);
   $(document).on('click','.btn-delete-blog', fnc_delete_blog);
 
@@ -144,7 +145,6 @@ function fnc_delete_blog()
             success: function (resp) 
             {  
                fnc_list_blog();
-
             },
             complete: function () 
             {    
